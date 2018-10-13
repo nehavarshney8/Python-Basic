@@ -1,0 +1,106 @@
+class LinkedList:
+    def __init__(self):
+        self.head=None
+        
+    def listValue(self):
+        printVal =  self.head
+        while printVal is not None:
+            print(printVal.data)
+            printVal=printVal.pointer
+            
+    def insertBegining(self, newdata):
+        newdata=Nodes(newdata)
+        newdata.pointer= self.head
+        self.head= newdata
+        
+    
+    def insertLast(self,last):
+        last=Nodes(last)
+        
+        if self.head is None:
+            selft.head=last
+            return
+        
+        last_Old= self.head
+        #Take Care of writing pointer here so that it will stop at the last node with pointer not last without pointer
+        while last_Old.pointer:
+            last_Old= last_Old.pointer
+        last_Old.pointer=last
+        
+    def between_Node(self, afternode, new):
+        
+        new= Nodes(new)
+        
+        if afternode is None:
+            print("the mentioned node is missing")
+            return
+        
+        temp= afternode.pointer
+        
+        afternode.pointer= new
+        new.pointer = temp
+        
+    def remove(self, remove):
+        
+        value= self.head
+        
+        if value is not None:
+            
+            if value.data== remove:
+            
+                self.head= value.pointer
+                value= None
+                return
+            
+        while value is not None:
+            
+            if value.data == remove:
+                break
+            prev =  value
+            value = value.pointer
+            
+        if value is None:
+            return
+        
+        prev.pointer= value.pointer
+        value=None
+        
+        
+        
+                
+            
+        
+                
+    
+    
+                    
+linked1 = LinkedList()
+linked1.head = Nodes("Head")
+l2= Nodes("I")
+l3=Nodes("Am")
+linked1.head.pointer=l2
+l2.pointer=l3
+#Inserting a new node in the start
+
+# temp = linked1.head
+# linked1.head= Nodes("New")
+# linked1.head.pointer=temp
+linked1.listValue()
+
+linked1.insertBegining("New New")
+linked1.insertLast("LAST LAST")
+linked1.between_Node(l2,"between")
+linked1.listValue()
+
+
+linked1.remove("between")
+
+linked1.listValue()
+
+
+
+
+
+
+
+        

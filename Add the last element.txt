@@ -1,0 +1,33 @@
+class Solution(object):
+    def plusOne(self, digits):
+        """
+        :type digits: List[int]
+        :rtype: List[int]
+        """
+        
+        d=digits[-1]
+        # digits.pop(d)
+        del digits[-1]
+        
+        d+=1
+        
+        if len(str(d)) == 2:
+            
+            d1= d//10
+            d2= d%10
+            # print(d1)
+            # print(d2)
+            # digits.pop(digits[-1])
+            digits.append(d1)
+            digits.append(d2)
+            
+            # digits[-1] = d
+            return digits
+        else:
+            digits.append(d)
+            return digits
+        
+        
+s= Solution()
+s.plusOne([1,2,9])
+        

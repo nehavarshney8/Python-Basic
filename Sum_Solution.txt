@@ -1,0 +1,33 @@
+class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+# runtime is 16 seconds
+
+        # collected = {}
+        # for index, value in enumerate(nums):
+        #     diff= target - value
+        #     if diff in collected:
+        #         return [collected[diff],index]
+        #     collected[value] = index
+                
+#               
+
+
+#  run time is 20 seconds
+
+        for i in range(len(nums)):
+            diff=target-nums[i]
+            if(diff in nums and i != nums.index(diff)):
+                return([i,nums.index(diff)])
+        
+        
+nums=[2,7,11,15]
+target=9
+solution= Solution()
+solution.twoSum(nums,target)
+        
+        

@@ -1,0 +1,21 @@
+class Solution(object):
+    def romanToInt(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        r= {'M' : 1000 , 'D' : 500 , 'C' : 100 , 'L' : 50 , 'X' : 10 , 'V' : 5 , 'I' : 1}
+        Z=0
+        for i in range (0, len(s)-1):
+            if r[s[i]] < r[s[i+1]] :
+                Z -= r[s[i]]
+            else:
+                Z += r[s[i]]
+        
+        Z += r[s[-1]]
+        
+        return Z
+
+
+s= Solution()
+s.romanToInt('III')
