@@ -1,0 +1,47 @@
+class Solution(object):
+    def lengthOfLongestSubstring(self, s):
+#         count=0
+        result=[]
+        count=[]
+        for i in range(0, len(s)-1):
+            letter=s[i]
+            
+            for j in range(i+1, len(s)):
+                if s[j] in letter:
+                    break
+                else:
+                    letter= letter+s[j]
+            result.append(letter)
+            count.append(len(letter))
+            
+        print(result)
+        print(count)
+        
+        max1=count[0]
+        index=0
+        for i in range(0, len(count)-1):
+#             max1=count[i]
+#             index=i
+            for j in range(i+1,len(count)):
+#                 if max1==count[j]:
+#                     break
+                
+                if max1<count[j]:
+                    max1= count[j]
+                    index=j
+                
+        print("length of longest substring is:",max1)
+        print("at the index of: ",index)
+        print("the substring is:", result[index])
+        return max1
+            
+            
+
+        
+            
+            
+            
+            
+s=Solution()
+s.lengthOfLongestSubstring("pwwkew")
+        

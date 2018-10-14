@@ -1,0 +1,43 @@
+class Solution(object):
+    def longestPalindrome(self,s):
+        l = len(s)
+        flag_even=[]
+       
+        if l==1 and s!="" and s!=" ":
+#             print("This is a single character i.e cannot be palindrome")
+            return 0
+        
+        elif " " in s or s=="":
+#             print("Empty String")
+            return 0
+        
+        else:
+
+            max_index= l-1
+#             if s[0]==s[max_index] and s[1] == s[l-2]:
+#                 print("palindrome")
+            for i in range(0,l//2):
+                if s[i] == s[max_index - i]:
+                    flag=1
+                    flag_even.append(flag)
+                else:
+#                     print("not a palindrome")
+                    flag=0
+                    flag_even.append(flag)
+                    break
+            for j in flag_even:
+                if j==0:
+                    print("not a palindrome")
+                    return
+#             print("palindrome")
+            return 1
+            
+#         else:
+#             print("Empty String")
+#             return
+            
+        
+        
+        
+s= Solution()
+s.longestPalindrome("neha")
