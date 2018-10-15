@@ -1,0 +1,75 @@
+#this is the function to convert string to integer and conditional result
+#i.e return 0 if starts with a word 
+#return int_max if >= maximum of 32 bit integer
+#return int_min if <= minimum of 32 bit integer
+
+class Solution(object):
+    def myAtoi(self, str):
+        """
+        :type str: str
+        :rtype: int
+        """
+        s=self.whiteSpace(str)
+#         print(len(s))
+        result=""
+        
+        INT_MAX = (2 ** 31) - 1
+        INT_MIN = -(2 ** 31)
+        
+        if len(s) > 1 :
+            if s[0]in("+","-") or s[0].isdigit():
+                result=result+s[0]
+                for i in range(1,len(s)):
+                    if s[i].isdigit():
+                        result= result+s[i]
+                    else:
+                        break
+                        
+            else:
+                print("The string starts with an alphabet")
+        else:
+            print("EMPTY STRING")
+            
+                    
+                
+        if len(result)==1 and result in ("+","-"):
+            return 0
+        
+        elif len(result) >=1:
+        
+            if int(result) >=INT_MAX:
+            
+                return int(INT_MAX)
+        
+            elif int(result) <= INT_MIN:
+            
+                return int(INT_MIN)
+         
+            return int(result)
+        else:
+            return None
+       
+            
+            
+    def whiteSpace(self, s):
+        s=s.lstrip()
+        s=s.rstrip()
+        return s
+    
+#     def alpha(self,s):
+#         if s[0].isalpha():
+#             return 0
+#         else:
+#             return 1
+            
+        
+        
+        
+        
+        
+        
+        
+        
+        
+s=Solution()
+s.myAtoi("-91283472332")
