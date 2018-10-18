@@ -1,0 +1,44 @@
+class TreeNode(object):
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+        
+        
+class Solution(object):
+    def isSymmetric(self, root):
+        """
+        :type root: TreeNode
+        :rtype: bool
+        """
+        
+        if root:
+            if root.left and root.right and root.left.val == root.right.val:
+                if root.left.left and root.left.right and root.right.left and root.right.right:
+                    if root.left.right == root.right.left and root.right.right == root.left.left:
+                
+                        return True
+                    else:
+                        return False
+                else:
+                    print("TREE HEIGHT :  1 AND IS SYMETTRICAL")
+                    return True
+                
+            else:
+                return False
+                    
+#             else:
+#                 return False
+        
+        
+        
+        
+tree_1= TreeNode(1)
+tree_1.left= TreeNode(2)
+tree_1.right= TreeNode(2)
+tree_1.left.left=3
+tree_1.left.right=4
+tree_1.right.left=4
+tree_1.right.right=3
+s=Solution()
+s.isSymmetric(tree_1)
